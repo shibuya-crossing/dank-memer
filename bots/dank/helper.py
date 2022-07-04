@@ -57,7 +57,7 @@ def kraken(message):
     kraken_line = lines[1]
 
     # Calcuwulation
-    kraken_pos = Position(round(count_whitespaces(kraken_line) / 7))
+    kraken_pos = Position(count_whitespaces(kraken_line) // 7)
     for pos in Position:
         if pos.value == kraken_pos.value:
             return pos.value
@@ -70,7 +70,7 @@ def dragon(message):
     man_line = lines[3]
 
     # Calcuwulation
-    fireball_pos = Position(round(count_whitespaces(fireball_line) / 7))
+    fireball_pos = Position(count_whitespaces(fireball_line) // 7)
     for pos in Position:
         if pos.name != fireball_pos.name:
             return pos.value
