@@ -20,7 +20,7 @@ Catch the fish!
 """,
     """
 Catch the fish!
-       :legendaryfish:
+       <:legendaryfish:
 :bucket::bucket::bucket: 
 """,
 ]
