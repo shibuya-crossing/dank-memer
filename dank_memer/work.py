@@ -1,6 +1,5 @@
 from enum import Enum
 import re
-from utils.utils import count_whitespaces, remove_whitespaces_from_array
 
 # Regex
 colon_regex = re.compile(r":(.*):")
@@ -45,4 +44,5 @@ class Soccer:
 
     @property
     def contents(self):
-        lines = remove_whitespaces_from_array(self.text.split('\n'))
+        # TODO
+        return
