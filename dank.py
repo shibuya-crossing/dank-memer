@@ -5,11 +5,26 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 import json
-from bots.dank.helper import dragon, kraken
+from dank_memer.helper import dragon, kraken
+from dank_memer.acc_parser import start_parser
 
-from single_acc_parser import start_parser
+# Load environment variables
 load_dotenv()
 
+from colorama import Fore, Style
+print(Fore.MAGENTA + """
+      _     _ _                       
+     | |   (_) |                      
+  ___| |__  _| |__  _   _ _   _  __ _ 
+ / __| '_ \| | '_ \| | | | | | |/ _` |
+ \__ \ | | | | |_) | |_| | |_| | (_| |
+ |___/_| |_|_|_.__/ \__,_|\__, |\__,_|
+                           __/ |      
+                          |___/       
+""")
+print(Style.RESET_ALL)
+
+# Load config
 with open("config.json") as f:
     config = json.load(f)
     print("Configuration loaded!")
@@ -20,6 +35,7 @@ class Dank(discord.Client):
         super().__init__(*args, **kwargs)
 
         self.channel = config["channels"][kwargs["user"].lower()]
+        # Dank memer bot id
         self.bot_id = "270904126974590976"
 
     async def setup_hook(self) -> None:
@@ -101,7 +117,7 @@ async def send_message(self, message, channel=0, *args, **kwargs):
     await self.get_channel(channel).send(message)
 
 
-async def click_button(self, message, index=0, *args, **kwargs):
+async def click_button(self, message, index=0, retries=4, *args, **kwargs):
     if len(message.components) == 0:
         return
 
@@ -111,7 +127,7 @@ async def click_button(self, message, index=0, *args, **kwargs):
         index = random.randrange(0, number_of_buttons)
     
     retry = 0
-    while retry < 4:
+    while retry < retries:
         try:
             await asyncio.sleep(1)
             await message.components[0].children[index].click()
