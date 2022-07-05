@@ -5,44 +5,34 @@ import re
 colon_regex = re.compile(r":(.*):")
 tilde_regex = re.compile(r"`(.*)`")
 
-class Work:
-    def __init__(self, message):
-        self.message = message
-        self.minigame = self.get_minigame(message)
 
-    def get_minigame(self):
-        if "color match" in self.message_contents:
-            return ColorMatch(self.message)
-        
-        if "soccer" in self.message_contents:
-            return self.Minigame(1)
-
-        if "repeat order" in self.message_contents:
-            return self.Minigame(2)
+def color_match(old_msg, new_msg):
+    msg = old_msg
+    msg.contents = msg.contents.lower()
+    words_color = dict(
+        zip(tilde_regex.findall(msg.contents), colon_regex.findall(msg.contents))
+    )
 
 
-    def get_answer(self):
-        return 'hi'
+def emoji_match(old_msg, new_msg):
+    return "TODO"
 
 
-class ColorMatch:
-    def __init__(self, message) -> None:
-        self.text = message.contents.lower()
+def repeat_order(old_msg, new_msg):
+    words = tilde_regex.findall(old_msg["contents"])
+    print(words)
+    # words = tilde_regex.findall(old_msg.contents)
+    order = []
+    for _, word in enumerate(words):
+        for btn_idx, btn in enumerate(new_msg["components"][0]["children"]):
+            # for btn_idx, btn in enumerate(new_msg.components[0].children):
+            # if btn.label == word:
+            if btn["label"] == word:
+                order.append(btn_idx)
+                break
 
-    @property
-    def contents(self):
-        options = dict(zip(tilde_regex.findall(self.text), colon_regex.findall(self.text)))
+    return order
 
-        return {
-            "answer": False,
-            "options": options
-        }
 
-class Soccer:
-    def __init__(self, message) -> None:
-        self.text = message.contents.lower()
-
-    @property
-    def contents(self):
-        # TODO
-        return
+def soccer(old_msg, new_msg):
+    return
