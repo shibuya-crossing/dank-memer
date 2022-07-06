@@ -29,7 +29,7 @@ def emoji_match(old_msg, new_msg):
 
 
 def repeat_order(old_msg, new_msg):
-    words = re.findall(r'\w+(?=`)', old_msg.content)
+    words = re.findall(tilde_regex, old_msg.content)
     order = []
     for word in words:
         for btn_idx, btn in enumerate(new_msg.components[0].children):
