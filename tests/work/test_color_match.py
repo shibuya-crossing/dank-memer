@@ -1,5 +1,5 @@
 from dank_memer.work import color_match
-from .test_emoji_match import Message, Button, ActionRow
+from test_emoji_match import Message, Button, ActionRow
 
 old_msg = Message()
 old_msg.content = """
