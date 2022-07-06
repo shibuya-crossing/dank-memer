@@ -1,10 +1,13 @@
 from dank_memer.work import repeat_order
 
-from discord import Button, Component, ActionRow
-
 class Message:
     pass
-
+class ActionRow:
+    pass
+class Button:
+    def __init__(self, label=None, emoji=None):
+        self.emoji = emoji
+        self.label = label
 
 old_message = Message()
 old_message.content = """
