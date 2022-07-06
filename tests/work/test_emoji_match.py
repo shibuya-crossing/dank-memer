@@ -1,32 +1,26 @@
 from dank_memer.work import emoji_match
+from .mock import Message, ActionRow, Button
 
-class Message:
-    pass
-
-class ActionRow:
-    pass
-
-class Emoji:
-    def __init__(self, name):
-        self.name = name
-        
-class Button:
-    def __init__(self, *, label=None, emoji=None):
-        self.label = label
-        self.emoji = Emoji(emoji)
-      
 old_message = Message()
-old_message.content = """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
+old_message.content = (
+    """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
+)
 
 new_message = Message()
 
-      
+
 new_message.content = """What was the emoji?"""
 new_message.components = [ActionRow()]
-new_message.components[0].children = [Button(emoji="😉"), Button(emoji="😉"),
-                                      Button(emoji="🤗"), Button(emoji="😀"),
-                                      Button(emoji="😁"), Button(emoji="🤔"),
-                                      Button(emoji="😁"), Button(emoji="😉")]
+new_message.components[0].children = [
+    Button(emoji="😉"),
+    Button(emoji="😉"),
+    Button(emoji="🤗"),
+    Button(emoji="😀"),
+    Button(emoji="😁"),
+    Button(emoji="🤔"),
+    Button(emoji="😁"),
+    Button(emoji="😉"),
+]
 
 
 def test_emoji_match():
