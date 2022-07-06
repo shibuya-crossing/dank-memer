@@ -1,6 +1,10 @@
 from dank_memer.work import repeat_order
 
-from discord import Button, Message, Component, ActionRow
+from discord import Button, Component, ActionRow
+
+class Message:
+    pass
+
 
 old_message = Message()
 old_message.content = """
