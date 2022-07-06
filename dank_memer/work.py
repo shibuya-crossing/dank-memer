@@ -1,5 +1,6 @@
 from enum import Enum
 import re
+from .helper import kranken, dragon
 
 # Regex
 colon_regex = re.compile(r":(.*):")
@@ -33,4 +34,7 @@ def repeat_order(old_msg, new_msg):
 
 
 def soccer(old_msg, new_msg):
-    return
+    return dragon(new_msg)
+
+def dunk_the_ball(old_msg, new_msg):
+    return kranken(new_msg)
