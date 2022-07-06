@@ -1,13 +1,15 @@
 from dank_memer.work import emoji_match
-from discord import Button, Component, ActionRow
 
 class Message:
     pass
 class ActionRow:
     pass
+class Emoji:
+    def __init__(self, name):
+        self.name = name
 class Button:
     def __init__(self, emoji):
-        self.emoji = emoji
+        self.emoji = Emoji(emoji)
       
 old_message = Message()
 old_message.content = """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
