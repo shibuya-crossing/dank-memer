@@ -1,5 +1,5 @@
 from dank_memer.work import repeat_order
-from .test_emoji_match import Message, ActionRow, Button
+from test_emoji_match import Message, ActionRow, Button
 
 
 old_message = Message()
