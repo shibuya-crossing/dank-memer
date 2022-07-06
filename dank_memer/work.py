@@ -1,6 +1,6 @@
 from enum import Enum
 import re
-from .helper import kranken, dragon
+from .helper import kraken, dragon
 
 # Regex
 colon_regex = re.compile(r":(.*):")
@@ -47,4 +47,4 @@ def soccer(old_msg, new_msg):
 def dunk_the_ball(old_msg, new_msg):
     # works the same as catch the fish
     # except the ball is in index 2
-    return kranken(new_msg, 2)
+    return kraken(new_msg, 2)
