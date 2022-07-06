@@ -21,6 +21,7 @@ def color_match(old_msg, new_msg):
 
 
 def emoji_match(old_msg, new_msg):
+    # Emoji is located at the end
     emoji = old_msg.content[-1]
     for btn_idx, btn in enumerate(new_msg.components[0].children):
         if btn.emoji.name == emoji:
@@ -40,7 +41,10 @@ def repeat_order(old_msg, new_msg):
 
 
 def soccer(old_msg, new_msg):
+    # works the same as dodge the fireball
     return dragon(new_msg)
 
 def dunk_the_ball(old_msg, new_msg):
+    # works the same as catch the fish
+    # except the ball is in index 2
     return kranken(new_msg, 2)
