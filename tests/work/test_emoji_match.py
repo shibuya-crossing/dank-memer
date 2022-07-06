@@ -3,6 +3,11 @@ from discord import Button, Component, ActionRow
 
 class Message:
     pass
+class ActionRow:
+    pass
+class Button:
+    def __init__(self, emoji):
+        self.emoji = emoji
       
 old_message = Message()
 old_message.contents = """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
