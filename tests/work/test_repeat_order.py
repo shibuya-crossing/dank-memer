@@ -1,30 +1,27 @@
 from dank_memer.work import repeat_order
 
-old_message = {
-    "contents": """
+from discord import Button, Message, Component, ActionRow
+
+old_message = Message()
+old_message.content = """
     Work for Discord Mod - Repeat Order - Remember words order!
     `welcome`
     `moderator`
     `advertising`
     `spam`
     `carl-bot`
-    """
-}
+"""
 
-new_message = {
-    "contents": "Click the buttons in correct order!",
-    "components": [
-        {
-            "children": [
-                {"label": "advertising"},
-                {"label": "moderator"},
-                {"label": "carl-bot"},
-                {"label": "welcome"},
-                {"label": "spam"},
-            ]
-        }
-    ],
-}
+new_message = Message()
+new_message.components = [ActionRow()]
+new_message.components[0].children = [
+    Button(label="advertising"),
+    Button(label="moderator"),
+    Button(label="carl-bot"),
+    Button(label="welcome"),
+    Button(label="spam"),
+]
+new_message.content = "Click the buttons in correct order!"
 
 
 def test_repeat_order():
