@@ -11,9 +11,9 @@ old_msg.content = """
 
 new_msg = Message()
 new_msg.content = "What color was next to the word `elves`?"
-new_msg.component = [ActionRow()]
-new_msg.component[0].children = [Button(label='Cyan'), Button(label='Marine'),
-                                 Button(label='White'), Button(label='Black')]
+new_msg.components = [ActionRow()]
+new_msg.components[0].children = [Button(label='Cyan'), Button(label='Marine'),
+                                  Button(label='White'), Button(label='Black')]
 
 def test_hi():
     assert color_match(old_msg, new_msg) == 2
