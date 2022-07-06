@@ -10,12 +10,12 @@ class Button:
         self.emoji = emoji
       
 old_message = Message()
-old_message.contents = """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
+old_message.content = """Work for Discord Mod - Emoji Match - Look at the emoji closely!\n🤔"""
 
 new_message = Message()
 
       
-new_message.contents = """What was the emoji?"""
+new_message.content = """What was the emoji?"""
 new_message.components = [ActionRow()]
 new_message.components[0].children = [Button(emoji="😉"), Button(emoji="😉"),
                                       Button(emoji="🤗"), Button(emoji="😀"),
