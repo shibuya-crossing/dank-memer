@@ -3,8 +3,8 @@ import re
 from .helper import kraken, dragon
 
 # Regex
-colon_regex = r'\w+(?=:)'
-tilde_regex = r'\w+(?=`)'
+colon_regex = r'(?<=:).+(?=:)'
+tilde_regex = r'(?<=`).+(?=`)'
 
 
 def color_match(old_msg, new_msg):
