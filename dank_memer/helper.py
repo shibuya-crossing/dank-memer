@@ -1,5 +1,4 @@
 from enum import Enum
-from numbers import Number
 from .utils import remove_whitespaces_from_array, count_whitespaces
 
 
@@ -9,7 +8,7 @@ class Position(Enum):
     Right = 2
 
 
-def kraken(message, index=1) -> Number:
+def kraken(message, index=1):
     lines = remove_whitespaces_from_array(message.split("\n"))
     kraken_line = lines[index]
 
