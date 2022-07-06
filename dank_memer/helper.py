@@ -9,9 +9,9 @@ class Position(Enum):
     Right = 2
 
 
-def kraken(message) -> Number:
+def kraken(message, index=1) -> Number:
     lines = remove_whitespaces_from_array(message.split("\n"))
-    kraken_line = lines[1]
+    kraken_line = lines[index]
 
     # Calcuwulation
     kraken_pos = Position(count_whitespaces(kraken_line) // 7)
@@ -20,11 +20,9 @@ def kraken(message) -> Number:
             return pos.value
 
 
-def dragon(message):
+def dragon(message, index=2):
     lines = remove_whitespaces_from_array(message.split("\n"))
-    dragon_line = lines[1]
-    fireball_line = lines[2]
-    man_line = lines[3]
+    fireball_line = lines[index]
 
     # Calcuwulation
     fireball_pos = Position(count_whitespaces(fireball_line) // 7)
