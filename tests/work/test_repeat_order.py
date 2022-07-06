@@ -1,6 +1,6 @@
 from dank_memer.work import repeat_order
+from test_emoji_match import Message, ActionRow, Button
 
-from discord import Button, Message, Component, ActionRow
 
 old_message = Message()
 old_message.content = """
